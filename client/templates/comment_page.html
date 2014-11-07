@@ -1,0 +1,21 @@
+<template name="comment_page">
+  <div class="post grid comment-page">
+    {{#if post}}
+    {{#with post}}
+      {{> post_item}}
+    {{/with}}
+    {{/if}}
+
+    {{#if comment}}
+    {{#with comment}}
+      <ul class="selected-comment">
+       {{> comment_item}}
+      </ul>
+    {{/with}}
+    {{/if}}
+
+    {{#if currentUser}}
+      {{> comment_form}}
+    {{/if}}
+  </div>
+</template>

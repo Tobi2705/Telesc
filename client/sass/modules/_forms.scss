@@ -1,0 +1,71 @@
+form, .accounts-dialog{
+	// @extend .grid-block;
+	.control-group{
+		margin-bottom:$grid-padding;
+		label{
+			float:left;
+		}
+		.controls{
+			margin-left:120px;
+			position:relative;
+			.get-title-link{
+				position:absolute;
+				display:block;
+				top:2px;
+				right:8px;
+				&.loading{
+					background:url(/img/loading.gif) center center no-repeat;
+					height:22px;
+					width:18px;
+					@include hide-text2;
+				}
+			}
+		}
+	}
+	.form-actions{
+		@include cf;
+		a{
+			float:left;
+			display:block;
+		}
+	}
+	input[type="text"], input[type="password"], textarea, .login-form input{
+		display:block;
+		padding:5px 6px;
+		width:100%;
+		font-size:14px;
+		@include border-box;
+		border:1px solid $grey;
+		@include single-transition(border-color, 500ms);	
+		// @include box-shadow(inset 0px 0px 0px 1px black(0.2));
+		&:focus{
+			outline: none;
+			border-color:$red;
+			@include box-shadow(0px 0px 5px 0px rgba($red,0.3));
+		}
+	}
+	input[type="text"], input[type="password"], .login-form input{
+		height:30px;
+		line-height:20px;
+	}
+	textarea{
+		min-height:100px;
+		line-height:1.4;
+	}
+	input[type="submit"], button, .button, .btn{
+		float:right;
+	}
+}
+input[type="submit"], button, .button, .btn{
+	-webkit-appearance: none;
+	@include border-radius(0px);
+	background:$red;
+	color:white;
+	display:block;
+	padding:0px 10px;
+	border:none;
+	font-size:16px;
+	cursor:pointer;
+	margin:0;
+	
+}

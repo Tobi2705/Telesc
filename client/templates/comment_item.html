@@ -1,0 +1,43 @@
+<template name="comment_item">
+  <li class="comment comment-displayed" id="{{_id}}">
+<!--     <div class="comment-notification"><a href="#" class="open-comment-link">{{author.username}}</a></div>
+ -->    <div class="comment-body">
+      <div class="comment-content">
+        <div class="comment-actions {{#if upvoted}}upvoted{{/if}} {{#if downvoted}}downvoted{{/if}}">
+          <a class="upvote" href="#">
+            <i class="icon-up"></i>
+            <span>upvote</span>
+          </a>
+          <a class="downvote" href="#">
+            <i class="icon-down"></i>
+            <span>downvote</span>
+          </a>
+        </div>
+        <div class="comment-meta">
+          <a class="comment-username" href="/users/{{user_id}}">{{author.username}}</a>
+          <span class="comment-time">{{ago}},</span>
+          <span class="points">{{votes}} <span class="unit">points </span>
+          <a href="/comments/{{_id}}" class="comment-permalink icon-link goto-comment">link</a>
+          {{#if can_edit}}
+            | <a class="edit-link" href="/comments/{{_id}}/edit">Edit</a>
+          {{/if}}
+          {{#if currentUser.isAdmin}}
+            | <a class="queue-comment" href="#">queue</a>
+            | <span>{{full_date}}</span>
+          {{/if}}
+        </div>
+        <div class="comment-text markdown">{{{body_formatted}}}</div>
+        <a href="/comments/{{_id}}" class="comment-reply goto-comment">Reply</a>
+      </div>
+      {{#unless repress_recursion}}
+      <ul class="comment-children comment-list">
+      {{#each child_comments}}
+        {{#with this}}
+        {{> comment_item}}
+        {{/with}}
+      {{/each}}
+      </ul>
+      {{/unless}}
+    </div>
+  </li>
+</template>

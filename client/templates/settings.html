@@ -1,0 +1,63 @@
+<template name="settings">
+  <div class="grid-small grid-block dialog settings">
+  	{{#with setting}}
+    <form>
+      <h2>Settings</h2>
+      {{#if no_settings}}
+      	<p>No settings yet.</p>
+      {{/if}}
+      {{#if currentUser.isAdmin}}
+      <div class="control-group">
+        <label>Site Title</label>
+        <div class="controls"><input id="title" name="title" type="text" value="{{title}}" /></div>
+      </div>
+      <div class="control-group">
+        <label>Theme</label>
+        <div class="controls">
+        	<select id="theme">
+        	<option {{#if is_default}}selected{{/if}} value="default">Default</option>
+		 	 <option {{#if is_ascndr}}selected{{/if}} value="ascndr">Ascndr</option>
+		  	<option {{#if is_telescope}}selected{{/if}} value="telescope">Telescope</option>
+			</select>
+		</div>
+      </div>
+      <div class="control-group">
+        <label>Footer Code</label>
+        <div class="controls"><textarea id="footer_code" name="footer_code">{{footerCode}}</textarea></div>
+      </div>
+      <div class="control-group">
+        <label>Analytics Code</label>
+        <div class="controls"><textarea id="analytics_code" name="analyticsCode">{{analyticsCode}}</textarea></div>
+      </div>
+      <div class="control-group">
+        <label><a href="http://tlk.io" target="_blank">Tlk.io</a> channel</label>
+        <div class="controls"><input id="tlkio_channel" name="tlkio_channel" type="text" value="{{tlkioChannel}}" /></div>
+      </div>
+      <div class="control-group">
+        <label><a href="http://mixpanel.com" target="_blank">Mixpanel</a> ID</label>
+        <div class="controls"><input id="mixpanel_id" name="mixpanel_id" type="text" value="{{mixpanelId}}" /></div>
+      </div>
+      <div class="control-group">
+        <label><a href="http://proxino.com" target="_blank">Proxino</a> key</label>
+        <div class="controls"><input id="proxino_key" name="proxino_key" type="text" value="{{proxinoKey}}" /></div>
+      </div>
+      <div class="control-group">
+        <label>Logo URL</label>
+        <div class="controls"><input id="logo_url" name="logo_url" type="text" value="{{logoUrl}}" /></div>
+      </div>
+      <div class="control-group">
+        <label>Logo Height</label>
+        <div class="controls"><input id="logo_height" name="logo_height" type="text" value="{{logoHeight}}" /></div>
+      </div>
+      <div class="control-group">
+        <label>Logo Width</label>
+        <div class="controls"><input id="logo_width" name="logo_width" type="text" value="{{logoWidth}}" /></div>
+      </div>
+      <div class="form-actions">
+        <input type="submit" class="button" value="Submit" />
+      </div>
+      {{/if}}
+    </form>
+    {{/with}}
+  </div>
+</template>

@@ -1,0 +1,11 @@
+{
+  "meteor": {
+    "branch": "auth"
+  },
+  "packages": {
+    "router": {},
+    "groups": {},
+    "cron": {},
+    "moment": {}
+  }
+}

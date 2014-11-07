@@ -1,0 +1,19 @@
+<template name="user_item">
+<tr class="user">
+	<td><span class="user-avatar" style="background-image:url({{avatar_url}});"></span></td>
+	<td><a href="/users/{{_id}}/edit">{{username}}</a></td>
+	<td>{{created_at_formatted}}</td>
+	<td>{{email}}</td>
+	<td>
+		<a href="#">{{posts_count}}</a>
+		<ul class="posts-list hidden">
+			{{#each posts}}
+				<li><a href="/posts/{{_id}}">{{headline}}</a></li>
+			{{/each}}
+		</ul>
+	</td>
+	<td><a href="#">{{comments_count}}</a></td>
+	<td>{{karma}}</td>
+	<td>{{#if isAdmin}}<i class="icon-check"></i>{{/if}}</td>
+</tr>
+</template>
